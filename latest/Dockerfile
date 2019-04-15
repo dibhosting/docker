@@ -2,7 +2,7 @@
 
 FROM ubuntu:18.04
 
-LABEL maintainer="plesk-dev-leads@plesk.com"
+#LABEL maintainer="plesk-dev-leads@plesk.com"
 
 ARG LICENSE
 
