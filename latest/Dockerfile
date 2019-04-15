@@ -86,4 +86,4 @@ CMD /run.sh
 # 8880 - plesk via http
 # 8443 - plesk via https
 # 8447 - autoinstaller
-EXPOSE 21 80 443 8880 8443 8447
+#EXPOSE 21 80 443 8880 8443 8447
