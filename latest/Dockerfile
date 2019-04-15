@@ -2,10 +2,6 @@
 
 FROM ubuntu:18.04
 
-#LABEL maintainer="plesk-dev-leads@plesk.com"
-
-ARG LICENSE
-
 ENV DEBIAN_FRONTEND noninteractive
 ENV PLESK_DISABLE_HOSTNAME_CHECKING 1
 ENV PORT 80
@@ -73,17 +69,3 @@ RUN apt-get update \
 
 ADD run.sh /run.sh
 CMD /run.sh
-
-# Port to expose
-# 21 - ftp
-# 25 - smtp
-# 53 - dns
-# 80 - http
-# 110 - pop3
-# 143 - imaps
-# 443 - https
-# 3306 - mysql
-# 8880 - plesk via http
-# 8443 - plesk via https
-# 8447 - autoinstaller
-#EXPOSE 21 80 443 8880 8443 8447
