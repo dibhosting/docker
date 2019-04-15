@@ -7,6 +7,23 @@
 FROM centos:centos7
 MAINTAINER The CentOS Project <cloud-ops@centos.org>
 
+ENV PORT 80
+ENV HOST 0.0.0.0
+ENV PORT 8080
+ENV HOST 0.0.0.0
+ENV PORT 8880
+ENV HOST 0.0.0.0
+ENV PORT 443
+ENV HOST 0.0.0.0
+ENV PORT 8447
+ENV HOST 0.0.0.0
+ENV PORT 8443
+ENV HOST 0.0.0.0
+ENV PORT 2121
+ENV HOST 0.0.0.0
+ENV PORT 2222
+ENV HOST 0.0.0.0
+
 RUN yum -y update; yum clean all
 RUN yum -y install nano; yum clean all
 RUN yum -y install wget; yum clean all
@@ -25,20 +42,3 @@ RUN ./start.sh
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
 
 RUN sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)
-
-ENV PORT 80
-ENV HOST 0.0.0.0
-ENV PORT 8080
-ENV HOST 0.0.0.0
-ENV PORT 8880
-ENV HOST 0.0.0.0
-ENV PORT 443
-ENV HOST 0.0.0.0
-ENV PORT 8447
-ENV HOST 0.0.0.0
-ENV PORT 8443
-ENV HOST 0.0.0.0
-ENV PORT 2121
-ENV HOST 0.0.0.0
-ENV PORT 2222
-ENV HOST 0.0.0.0
