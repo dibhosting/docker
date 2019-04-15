@@ -30,7 +30,7 @@ RUN yum -y install wget; yum clean all
 RUN yum -y install libicu60; yum clean all
 RUN yum -y install tzdata; yum clean all
 RUN yum -y install openssh-server passwd; yum clean all
-
+RUN yum -y npm install
 ADD ./start.sh /start.sh
 RUN mkdir /var/run/sshd
 
@@ -38,7 +38,8 @@ RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
 
 RUN chmod 755 /start.sh
 # EXPOSE 22
-RUN ./start.sh
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
 
 RUN sh <(curl https://autoinstall.plesk.com/one-click-installer || wget -O - https://autoinstall.plesk.com/one-click-installer)
+
+RUN ./start.sh
+ENTRYPOINT ["/usr/sbin/sshd", "-D"]
